@@ -141,7 +141,7 @@ curl GET http://api.airotacujan.online/health
 /*
 
 git add .
-git commit -m "shopify"
+git commit -m "simulator"
 git push
 
 
@@ -156,30 +156,15 @@ git pull
 
 
 
+git init
 
-
-
-git rm --cached documents/*.odt
-
-git log --oneline
-
-git revert a1b2c3d
-
-safe view: git checkout a1b2c3d
-git reset --hard a1b2c3d
-
-
-
-https://github.com/tacujanairo/shopify-checkout-simulator.git
-
-use ssh not http
-
-git remote set-url origin git@github.com:tacujanairo/shopify-webhook-pipeline.git
+git remote add origin git@github.com:tacujanairo/shopify-checkout-simulator.git
+git add .
+git commit -m "initial commit"
+git branch -M main
+git remote set-url origin git@github.com:tacujanairo/shopify-checkout-simulator.git
 git remote -v
 
-pm2
 
-
-
-git@github.com:tacujanairo/shopify-checkout-simulator.git
+git push -u origin main
 */
