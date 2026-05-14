@@ -170,7 +170,7 @@ git reset --hard a1b2c3d
 
 
 
-https://github.com/tacujanairo/shopify-webhook-pipeline.git
+https://github.com/tacujanairo/shopify-checkout-simulator.git
 
 use ssh not http
 
@@ -178,4 +178,8 @@ git remote set-url origin git@github.com:tacujanairo/shopify-webhook-pipeline.gi
 git remote -v
 
 pm2
+
+
+
+git@github.com:tacujanairo/shopify-checkout-simulator.git
 */
