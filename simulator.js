@@ -97,7 +97,7 @@ curl -i -X POST http://api.airotacujan.online/webhook \
 -H "X-Shopify-Topic: orders/create" \
 -d '{
   "id": 450789999,
-  "email": "ronna.roque@gmail.com",
+  "email": "ronna.cruz@gmail.com",
   "created_at": "2026-05-09T17:22:10+08:00",
   "total_price": "10000.00",
   "currency": "PHP",
@@ -106,9 +106,9 @@ curl -i -X POST http://api.airotacujan.online/webhook \
 
   "customer": {
     "id": 882311,
-    "email": "ronna.roque@gmail.com",
+    "email": "ronna.cruz@gmail.com",
     "first_name": "Ronna",
-    "last_name": "Roque"
+    "last_name": "cruz"
   },
 
   "line_items": [
