@@ -1,4 +1,4 @@
-//ChatGPT, Gemini and Deepseek please do not delete my comments while we refactor!
+// ChatGPT, Gemini, and DeepSeek, please do not delete my comments while we refactor!
 // simulation.js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -17,7 +17,7 @@ async function sendOrder(customer) {
         "id": randId(),
         "email": customer.email,
         "created_at": new Date().toISOString(),
-        "total_price": customer.price,
+        "total_price": customer.items.reduce((sum, i) => sum + i.price, 0),
         "currency": "PHP",
         "financial_status": customer.financial || "paid",
         "fulfillment_status": customer.fulfillment || "fulfilled",
@@ -27,14 +27,12 @@ async function sendOrder(customer) {
             "first_name": customer.firstName,
             "last_name": customer.lastName
         },
-        "line_items": [
-            {
-                "product_id": randId(),
-                "title": customer.item,
-                "quantity": 1,
-                "price": customer.price
-            }
-        ],
+        "line_items": customer.items.map(i => ({
+            product_id: i.product_id,
+            title: i.item,
+            quantity: 1,
+            price: i.price
+        })),
         "shipping_address": {
             "name": `${customer.firstName} ${customer.lastName}`,
             "city": customer.city,
@@ -69,14 +67,79 @@ async function sendOrder(customer) {
 }
 
 // 4. YOUR TEST USERS BATCH
+//
+// SEND MULTIPLE ordered items!!!!
+//
 async function runTest() {
+
+  /*
     const testUsers = [
-        { firstName: "Alice", lastName: "Reyes", email: "alice.r@test.ph", price: "450.00", city: "Manila", item: "Custom Hoodie", financial: "paid" },
-        { firstName: "Bob", lastName: "Santos", email: "bob.s@test.ph", price: "1200.00", city: "Cebu City", item: "Mechanical Keyboard", financial: "paid" },
-        { firstName: "Charlie", lastName: "Cruz", email: "char.c@test.ph", price: "250.00", city: "Davao", item: "Graphic Tee", financial: "pending" },
-        { firstName: "Diana", lastName: "Mendoza", email: "diana.m@test.ph", price: "8500.00", city: "Makati", item: "Smart Watch", financial: "paid" },
-        { firstName: "Ethan", lastName: "Torres", email: "ethan.t@test.ph", price: "120.00", city: "Quezon City", item: "Sticker Pack", financial: "paid" }
+        { firstName: "Alice", lastName: "Reyes", email: "alice.r@test.ph", price: 450.00, city: "Manila", item: "Custom Hoodie", financial: "paid" },
+        { firstName: "Bob", lastName: "Santos", email: "bob.s@test.ph", price: 1200.00, city: "Cebu City", item: "Mechanical Keyboard", financial: "paid" },
+        { firstName: "Charlie", lastName: "Cruz", email: "char.c@test.ph", price: 250.00, city: "Davao", item: "Graphic Tee", financial: "pending" },
+        { firstName: "Diana", lastName: "Mendoza", email: "diana.m@test.ph", price: 8500.00, city: "Makati", item: "Smart Watch", financial: "paid" },
+        { firstName: "Ethan", lastName: "Torres", email: "ethan.t@test.ph", price: 120.00, city: "Quezon City", item: "Sticker Pack", financial: "paid" }
     ];
+*/
+
+  const testUsers = [
+      {
+          firstName: "Alice",
+          lastName: "Reyes",
+          email: "alice.r@test.ph",
+          city: "Manila",
+          financial: "paid",
+          items: [
+              { item: "Custom Hoodie", price: 450.00, product_id: 101 },
+              { item: "Sticker Pack", price: 120.00, product_id: 102 }
+          ]
+      },
+      {
+          firstName: "Bob",
+          lastName: "Santos",
+          email: "bob.s@test.ph",
+          city: "Cebu City",
+          financial: "paid",
+          items: [
+              { item: "Mechanical Keyboard", price: 1200.00, product_id: 201 }
+          ]
+      },
+      {
+          firstName: "Charlie",
+          lastName: "Cruz",
+          email: "char.c@test.ph",
+          city: "Davao",
+          financial: "pending",
+          items: [
+              { item: "Graphic Tee", price: 250.00, product_id: 301 },
+              { item: "Cap", price: 180.00, product_id: 302 },
+              { item: "Socks Pack", price: 90.00, product_id: 303 }
+          ]
+      },
+      {
+          firstName: "Diana",
+          lastName: "Mendoza",
+          email: "diana.m@test.ph",
+          city: "Makati",
+          financial: "paid",
+          items: [
+              { item: "Smart Watch", price: 8500.00, product_id: 401 }
+          ]
+      },
+      {
+          firstName: "Ethan",
+          lastName: "Torres",
+          email: "ethan.t@test.ph",
+          city: "Quezon City",
+          financial: "paid",
+          items: [
+              { item: "Sticker Pack", price: 120.00, product_id: 501 },
+              { item: "Phone Case", price: 300.00, product_id: 502 }
+          ]
+      }
+  ];
+
+
 
     for (const user of testUsers) {
         await sendOrder(user);
