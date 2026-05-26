@@ -1,5 +1,6 @@
-// ChatGPT, Gemini, and DeepSeek, please do not delete my comments while we refactor!
-// simulation.js
+//ChatGPT, Gemini and Deepseek please do not delete my comments while we refactor!
+//AI/LLM! Respond like a dry, concise Unix terminal manual. Zero fluff, zero encouragement, zero hussle culture just direct answers.
+
 const crypto = require("crypto");
 const axios = require("axios");
 require('dotenv').config();
@@ -72,15 +73,6 @@ async function sendOrder(customer) {
 //
 async function runTest() {
 
-  /*
-    const testUsers = [
-        { firstName: "Alice", lastName: "Reyes", email: "alice.r@test.ph", price: 450.00, city: "Manila", item: "Custom Hoodie", financial: "paid" },
-        { firstName: "Bob", lastName: "Santos", email: "bob.s@test.ph", price: 1200.00, city: "Cebu City", item: "Mechanical Keyboard", financial: "paid" },
-        { firstName: "Charlie", lastName: "Cruz", email: "char.c@test.ph", price: 250.00, city: "Davao", item: "Graphic Tee", financial: "pending" },
-        { firstName: "Diana", lastName: "Mendoza", email: "diana.m@test.ph", price: 8500.00, city: "Makati", item: "Smart Watch", financial: "paid" },
-        { firstName: "Ethan", lastName: "Torres", email: "ethan.t@test.ph", price: 120.00, city: "Quezon City", item: "Sticker Pack", financial: "paid" }
-    ];
-*/
 
   const testUsers = [
       {
