@@ -145,9 +145,9 @@ runTest();
 /*
 
 Basic curl to use if you dont want to use the stress tester script
-
 curl -i -X POST http://api.airotacujan.online/webhook \
 -H "Content-Type: application/json" \
+-H "X-Shopify-Hmac-Sha256: xxxxxx" \
 -H "X-Shopify-Webhook-Id: 88944888888" \
 -H "X-Shopify-Topic: orders/create" \
 -d '{

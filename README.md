@@ -1,6 +1,6 @@
 ﻿# Shopify Checkout Simulator (Active Development)
 
-A simple Node.js simulator for testing Shopify-style checkout flows.
+A simple Node.js simulator for testing Shopify-style checkout flows for this project "https://github.com/tacujanairo/shopify-webhook-pipeline".
 
 ## What it does
 - Simulates a checkout process
