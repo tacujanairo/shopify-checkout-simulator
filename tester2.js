@@ -11,7 +11,7 @@ const VPS_URL = "http://api.airotacujan.online/webhook"; // Change to http://loc
 async function sendOrder(customer) {
     // 2. THE FIXED PAYLOAD (Completely predictable IDs for test-proofing)
     const orderData = {
-        "id": 999999999, // Fixed Order ID
+        "id": 59996, // Fixed Order ID
         "email": customer.email,
         "created_at": "2026-05-28T12:00:00Z", // Fixed timestamp
         "total_price": customer.items.reduce((sum, i) => sum + i.price, 0),
@@ -19,7 +19,7 @@ async function sendOrder(customer) {
         "financial_status": customer.financial || "paid",
         "fulfillment_status": customer.fulfillment || "fulfilled",
         "customer": {
-            "id": 888888888, // Fixed Customer ID
+            "id": 444441, // Fixed Customer ID
             "email": customer.email,
             "first_name": customer.firstName,
             "last_name": customer.lastName
@@ -53,7 +53,7 @@ async function sendOrder(customer) {
                 "Content-Type": "application/json",
                 "X-Shopify-Hmac-Sha256": hmac,
                 "X-Shopify-Topic": "orders/create",
-                "X-Shopify-Webhook-Id": "111111111111111" // Fixed Webhook ID
+                "X-Shopify-Webhook-Id": "233333" // Fixed Webhook ID
             }
         });
 
